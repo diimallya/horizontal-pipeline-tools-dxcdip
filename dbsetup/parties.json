@@ -1,0 +1,54 @@
+{
+  "Hyperion": {
+    "userType": "Broker",
+    "database": {
+      "name": "compose-for-mysql",
+      "plan": "Standard"
+    },
+    "uuid": "69ed0c38-d9d0-47b1-a345-1a00670bd2b6"
+  },
+  "Jardine Lloyd Thompson": {
+    "userType": "Broker",
+    "database": {
+      "name": "compose-for-mysql",
+      "plan": "Standard"
+    },
+    "uuid": "e58573bf-8fe8-466a-82af-95cc1f44f0ba"
+  },
+  "Willis": {
+    "userType": "Broker",
+    "database": {
+      "name": "compose-for-mysql",
+      "plan": "Standard"
+    },
+    "uuid": "4241389c-9c36-4980-bc5b-6248a405d90a"
+  },
+  "Liberty Syndicate": {
+    "userType": "Insurer",
+    "database": {
+      "name": "compose-for-mysql",
+      "plan": "Standard"
+    },
+    "uuid": "c9405155-2e3c-4ad8-8867-e8ff55b88842"
+  },
+  "Markel Corporation": {
+    "userType": "Insurer",
+    "database": {
+      "name": "compose-for-mysql",
+      "plan": "Standard"
+    },
+    "uuid": "381fdb63-0062-4be6-9a57-37937a2ad4ce"
+  },
+  "NFU Mutual": {
+    "userType": "Insurer",
+    "database": {
+      "name": "compose-for-mysql",
+      "plan": "Standard"
+    },
+    "uuid": "c796c678-31f1-4367-9a12-f2b74b87e5b0"
+  },
+  "InnovatorIan": {
+    "userType": "Innovator",
+    "uuid": "cd8021f2-cd09-41a0-a6ae-597c0e9c508f"
+  }
+}

@@ -1,0 +1,85 @@
+---
+stages:
+- name: Install Bluemix CLI
+  inputs:
+  - url: https://git.ng.bluemix.net/csc/horizontal-pipeline-tools.git
+    type: git
+    branch: master
+    dir_name: null
+  triggers:
+  - type: commit
+  jobs:
+  - name: Build
+    type: builder
+    artifact_dir: ''
+    build_type: shell
+    script: |-
+      #!/bin/bash
+
+      ./pipeline_scripts/buildBluemixCLI.sh
+- name: Install go
+  inputs:
+  - type: job
+    stage: Install Bluemix CLI
+    job: Build
+    dir_name: null
+  triggers:
+  - type: stage
+  jobs:
+  - name: Build
+    type: builder
+    artifact_dir: ''
+    build_type: shell
+    script: |-
+      #!/bin/bash -e
+      # your script here
+
+      ./pipeline_scripts/installGo.sh
+- name: Build & test deployment program
+  inputs:
+  - type: job
+    stage: Install go
+    job: Build
+    dir_name: null
+  triggers:
+  - type: stage
+  jobs:
+  - name: Build
+    type: builder
+    artifact_dir: ''
+    build_type: shell
+    script: |-
+      #!/bin/bash -e
+      # WARNING: FOR PIPELINE USE UNLESS YOU WANT TO INSTALL GO
+
+      ./pipeline_scripts/testAndBuild.sh
+- name: Deploy Spaces
+  inputs:
+  - type: job
+    stage: Build & test deployment program
+    job: Build
+    dir_name: null
+  triggers:
+  - type: stage
+  properties:
+  - name: API_KEY
+    type: secure
+  - name: ORG
+    value: DXC-Digital-Innovation-Platform
+    type: text
+  jobs:
+  - name: Build
+    type: builder
+    artifact_dir: ''
+    build_type: shell
+    script: |-
+      #!/bin/bash -e
+
+      ./pipeline_scripts/deploySpace.sh
+
+      ls -l
+hooks:
+- enabled: true
+  label: null
+  ssl_enabled: false
+  url: https://devops-api.ng.bluemix.net/v1/messaging/webhook/publish

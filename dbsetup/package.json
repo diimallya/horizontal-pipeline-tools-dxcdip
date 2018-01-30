@@ -1,0 +1,21 @@
+{
+  "name": "dbsetup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha tests/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cloudant": "^1.8.0",
+    "express": "^4.16.2",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
+  }
+}

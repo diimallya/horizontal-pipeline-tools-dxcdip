@@ -1,0 +1,8 @@
+---
+applications:
+- name: InnovatorIan-admin
+  memory: 128M
+  no-hostname: true
+  no-route: true
+  services:
+  - InnovatorIan-cloudant

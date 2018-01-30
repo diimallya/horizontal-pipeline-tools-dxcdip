@@ -1,0 +1,8 @@
+deploySpace/deploySpace
+.DS_Store
+
+dbsetup/node_modules
+*.log
+.cf
+dbsetup/*-*.yaml
+dbsetup/.secrets
